@@ -6,35 +6,31 @@ int main()
 {
     int choice{}; // Declaring the variable to store user choice
     cout << "What shape do you like to draw:\n";
-    cout << "Choose 1 for solid and hollow rectangle\n";
-    cout << "Choose 2 for a right angle triangle\n";
+    cout << "Choose 1 for filled and hollow rectangle\n";
+    cout << "Choose 2 for a right-angle triangle\n";
     cin >> choice;
 
     if (choice == 1)
     {
-        int length{}, width{};
-        cout << "Enter length of the rectangle: \n";
-        cin >> length;
+        int width{}, height{};
         cout << "Enter width of the rectangle: \n";
         cin >> width;
-
-        // Drawing solid rectangle
-        cout << "Solid Rectangle:\n";
+        cout << "Enter height of the rectangle: \n";
+        cin >> height;
+        // Drawing both rectangles side by side
+        cout << "Filled Rectangle:          Hollow Rectangle:\n";
         for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < length; j++)
+            // Draw solid rectangle
+            for (int j = 0; j < height; j++)
             {
                 cout << "* ";
             }
-            cout << endl;
-        }
-        // Drawing hollow rectangle
-        cout << "Hollow Rectangle:\n";
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < length; j++)
+            cout << "     ";
+            // Draw hollow rectangle
+            for (int j = 0; j < height; j++)
             {
-                if (i == 0 || i == width - 1 || j == 0 || j == length - 1)
+                if (i == 0 || i == width - 1 || j == 0 || j == height - 1)
                 {
                     cout << "* ";
                 }
@@ -45,17 +41,14 @@ int main()
             }
             cout << endl;
         }
-        // Drawing the triangle
     }
-
-    else if (choice == 2)
+        else if (choice == 2)
     {
         int width{};
-        int height{};
-        cout << "Enter width of the triangle: \n";
+        cout << "Enter width of the right-angle triangle: \n";
         cin >> width;
 
-        // Drawing the triangle (base on top)
+        // Drawing the right-angle triangle (base on top)
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < width - i; j++)
@@ -66,17 +59,15 @@ int main()
         }
     }
     cout << "Do you want to try again? (y for yes, n for no)\n";
-    char retry{};
-    cin >> retry;
-    if (retry == 'y' || retry == 'Y')
-    {
-        main(); // Call main to restart the program
-    }
-    else
-    {
-        cout << "Thank you for using the shape drawer!\n";
-    }   
-    return 0;
+char retry{};
+cin >> retry;
+if (retry == 'y' || retry == 'Y')
+{
+    main(); // Call main to restart the program
 }
-
-    
+else
+{
+    cout << "Thank you for using the shape drawer app!\n";
+}
+return 0;
+}
