@@ -1,14 +1,13 @@
 
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 #include <ctime>
 
 int ComputeSumOfSquares(std::vector<int>& vec);
 int main()
 {
     // Seed random number generator
-    srand(static_cast<unsigned int>(time(0)));
+    srand(time(0));
     
     char tryAgain;
     
@@ -30,8 +29,8 @@ int main()
         std::vector<int> vec(m);
         std::cout << "Vector contents: ";
         for (int i = 0; i < m; i++) {
-            vec[i] = (rand() % 21) - 10;  // generates random numbers between -10 and 10
-            std::cout << vec[i] << " ";
+            vec[i] = rand() % 21 - 10;  // generates random numbers between -10 and 10
+            std::cout << vec[i] << ", ";
         }
         std::cout << std::endl;
         
@@ -55,7 +54,7 @@ int main()
 // This function accummulates sum of squares of the numbers in vector vec.
 int ComputeSumOfSquares(std::vector<int>& vec)
 {
-    int sum = 0;
+    int sum{};
     for (int i = 0; i < vec.size(); i++) {
         sum += vec[i] * vec[i];
     }
